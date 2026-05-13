@@ -227,6 +227,15 @@ Promise.all([getCardIndex(), getBlogIndex(), getPodcastIndex(), getVideoIndex(),
     });
 
     bot.on("message", ({ author, content, channel }) => {
+
+      if (content && content.toLowerCase().includes('access to the marketplace'))
+      {
+        channel.send({
+          files: ['https://hallofbeorn-resources.s3.us-east-1.amazonaws.com/Images/LotR/Community/Beorn/BeornBot/you_shall_not_pass.jpg']
+        });
+        return;
+      }
+
       // Our bot needs to know if it will execute a command
       // It will listen for messages that will start with `!`
       if (content.startsWith("!")) {
